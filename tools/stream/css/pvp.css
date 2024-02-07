@@ -1,0 +1,121 @@
+main {
+    color:white;
+    font-size: 2rem;
+    font-weight:300;
+}
+
+.player-profile .frame {
+    display:block;
+    height:100%;
+    position:absolute;
+}
+
+.player-profile .profile {
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height:95%;
+}
+
+.player-profile {
+    position:relative;
+}
+
+.player-flag {
+    font-size:2rem;
+}
+
+.player-name {
+    font-size: 4rem;
+    line-height:4rem;
+    font-weight: bold;
+}
+
+.stat-name {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#player-stats {
+    white-space: nowrap;
+}
+
+.player-header {
+    white-space: nowrap;
+}
+
+#player1-header {
+    margin-left: 5vw;
+}
+
+#player2-header {
+    margin-right: 6vw;
+}
+
+.stat-higher {
+    font-weight:bold;
+}
+
+.stat-lower {
+    color: lightgray;
+    font-weight:200;
+}
+
+.player-rating {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 3px;
+    font-size:8rem;
+    font-weight:900;
+    margin-top:-20px;
+}
+
+#player1-rating {
+    text-align:end;
+    margin-right:10%;
+}
+
+#player2-rating {
+    text-align:start;
+    margin-left:10%;
+}
+
+#stat-source {
+    font-size:1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.rating-label {
+    -webkit-text-fill-color:initial;
+    -webkit-text-stroke:initial;
+    font-size:1rem;
+    font-weight:initial;
+    vertical-align:middle;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.frame {
+    aspect-ratio: 1/1;
+}
+
+.frame css-doodle {
+    display:inline;
+}
+
+.player-profile .profile {
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height:95%;
+}
+
+.player-profile {
+    position:relative;
+}
+
+#player-stats > .row {
+    flex:1;
+}

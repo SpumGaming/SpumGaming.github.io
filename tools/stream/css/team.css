@@ -1,0 +1,19 @@
+.frame {
+    aspect-ratio: 1/1;
+}
+
+.frame css-doodle {
+    display:inline;
+}
+
+.player-profile .profile {
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height:95%;
+}
+
+.player-profile {
+    position:relative;
+}

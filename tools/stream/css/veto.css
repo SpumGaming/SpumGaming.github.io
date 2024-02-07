@@ -1,0 +1,60 @@
+.map-ancient {
+    background-image: url("../assets/mapthumbnails/de_ancient_small.png");
+    
+}
+
+.map-anubis {
+    background-image: url("../assets/mapthumbnails/de_anubis_small.png");
+}
+
+.map-mirage {
+    background-image: url("../assets/mapthumbnails/de_mirage_small.png");
+}
+
+.map-inferno {
+    background-image: url("../assets/mapthumbnails/de_inferno_small.png");
+}
+
+.map-nuke {
+    background-image: url("../assets/mapthumbnails/de_nuke_small.png");
+}
+
+.map-overpass {
+    background-image: url("../assets/mapthumbnails/de_overpass_small.png");
+}
+
+.map-vertigo {
+    background-image: url("../assets/mapthumbnails/de_vertigo_small.png");
+}
+
+.map-container {
+    overflow:hidden;
+    width:100%;
+}
+
+.map {
+    height:100%;
+    background-size:cover;
+    background-position:center;
+}
+
+.anim-expandHeight {
+    animation: expandHeight 0.5s ease 0s 1 normal forwards;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+@keyframes expandHeight {
+    from {
+      aspect-ratio:100000;
+    }
+    to {
+      aspect-ratio:1;
+    }
+  }

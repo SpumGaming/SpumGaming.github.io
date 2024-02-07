@@ -1,0 +1,44 @@
+<css-doodle class="background background-grad" grid="10" seed="38581">
+    :doodle {
+    @grid: 10 / 100vmax;
+    filter: blur(1.5px);
+    transform: scale(1.1)
+    }
+
+    @keyframes move {   
+        0% {
+            transform:  translate(@rand(-50%, 50%), @rand(-50%, 50%));
+        }
+
+        100% {
+            transform:  translate(@rand(-50%, 50%), @rand(-50%, 50%));
+        }
+    }
+
+    @keyframes flicker {
+        0% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @shape: circle;
+    background: hsla(33, 100%, 47%, @rand(0.1,0.3));
+    transform:  
+        scale(@rand(0.5,1.5))
+        translate(@rand(-50%, 50%), @rand(-50%, 50%));
+    filter:blur(@rand(2,10)px);
+    animation: flicker @rand(5,10)s ease infinite;
+
+    @random(0.7) {
+        background:transparent;
+        border:none;
+    }
+</css-doodle>

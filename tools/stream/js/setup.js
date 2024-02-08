@@ -6,7 +6,8 @@ export {
     SetupVetoPage
 }
 
-import { ComposeForms, PopulateStats, ComposeVetos, ComposePlayersVersus } from "./compose.js";
+import { ComposeForms, ComposeVetos, ComposePlayersVersus, ComposeTeams } from "./compose.js";
+import { GetTeamIconFromSource } from "./adapter.js";
 import { GetJson, LoadHtmlIntoElement } from "./utils.js";
 import { DATA_PATH_NEW } from "./constants.js";
 import { context } from "./app.js";
@@ -31,22 +32,14 @@ function SetupIndexPage() {
 
 function SetupPvpPage(params) {
     const parsed = JSON.parse(params.get("players"));
-    const player1 = {
-        sourceId:params.get("s1"),
-        playerId:params.get("p1")
-    }
-    const player2 = {
-        sourceId:params.get("s2"),
-        playerId:params.get("p2")
-    }
     const players = parsed.map(player => {
         return {
-            sourceId: player.group,
-            playerId: player.opt
+            sourceId: decodeURIComponent(player.group),
+            playerId: decodeURIComponent(player.opt)
         };
     });
     ComposePlayersVersus(players);
-    PopulateStats(player1, player2);
+    //PopulateStats(player1, player2);
 }
 
 function SetupTeamPage(params) {
@@ -54,16 +47,79 @@ function SetupTeamPage(params) {
 }
 
 function SetupVetoPage(params) {
-    context.veto = {count:0}
+    const parsed = JSON.parse(params.get("teams"));
+    const teams = parsed.map(team => {
+        return {
+            sourceId: decodeURIComponent(team.group),
+            teamName: decodeURIComponent(team.opt)
+        }
+    });
 
+    ComposeTeams(teams);
     ComposeVetos(JSON.parse(params.get("formats")));
 
+    context.teamIcons = teams.map(team => GetTeamIconFromSource(team.sourceId, team.teamName));
+    context.startingTeam = null;
+    context.vetoedMaps = [];
     document.addEventListener("keydown", (event) => {
+        if(context.startingTeam == null && event.code == "ArrowLeft") {
+            console.log("left team starting!");
+            const elementsVeto = document.querySelectorAll(".veto");
+            for(let i = 0; i < elementsVeto.length; i++) {
+                const elementIcon = elementsVeto[i].querySelector("i");
+                elementIcon.classList.remove("fa-question");
+                elementIcon.classList.add(context.teamIcons[i%2]);
+            }
+            context.startingTeam = 0;
+            return;
+        }
+
+        if(context.startingTeam == null && event.code == "ArrowRight") {
+            console.log("right team starting!");
+            const elementsVeto = document.querySelectorAll(".veto");
+            for(let i = 0; i < elementsVeto.length; i++) {
+                const elementIcon = elementsVeto[i].querySelector("i");
+                elementIcon.classList.remove("fa-question");
+                elementIcon.classList.add(context.teamIcons[(i+1)%2]);
+            }
+            context.startingTeam = 1;
+            return;
+        }
+
+        if(context.startingTeam == null) {
+            console.log("starting team not chosen!");
+            return;
+        }
+
         if(keyToMap.has(event.code)) {
-            const map = document.querySelectorAll(".veto .map")[context.veto.count]
-            map.classList.add(keyToMap.get(event.code));
-            map.classList.add("anim-expandHeight");
-            context.veto.count++;
+            const elementsVeto = document.querySelectorAll(".veto");
+            if(context.vetoedMaps.length == Array.from(elementsVeto).length) {
+                console.log(`already vetoed all maps!`);
+                return;
+            }
+
+            const elementVeto = elementsVeto[context.vetoedMaps.length];
+            const elementMap = elementVeto.querySelector(".map");
+            const map = keyToMap.get(event.code);
+            if(context.vetoedMaps.includes(map)) {
+                console.log(`map ${map} already vetoed!`);
+                return;
+            }
+            
+            elementMap.classList.add(map);
+            elementMap.classList.add("anim-expandHeight");
+            context.vetoedMaps.push(map);
+
+            if(context.vetoedMaps.length == Array.from(elementsVeto).length - 1) {
+                console.log(`auto filled last map!`);
+                const listMaps = Array.from(keyToMap.values());
+                const lastMap = listMaps.filter(map => !context.vetoedMaps.includes(map));
+                const lastMapElement = elementsVeto[Array.from(elementsVeto).length - 1].querySelector(".map");
+                lastMapElement.classList.add(lastMap);
+                lastMapElement.classList.add("anim-delay-1s");
+                lastMapElement.classList.add("anim-expandHeight");
+                context.vetoedMaps.push(map);
+            }
         }
     });
 }

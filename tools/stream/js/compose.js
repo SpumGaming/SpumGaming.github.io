@@ -2,11 +2,12 @@ export {
     ComposeForms,
     PopulateStats,
     ComposeVetos,
-    ComposePlayersVersus
+    ComposePlayersVersus,
+    ComposeTeams
 }
 
 import { BuildOptgroups, BuildOptions, BuildVetos } from "./build.js";
-import { GetAllTeamsFromAllSourcesShallow, GetAllPlayersFromAllSourcesShallow, GetAllFormats, GetPlayerMetaFromSource } from "./adapter.js";
+import { GetAllTeamsFromAllSourcesShallow, GetAllPlayersFromAllSourcesShallow, GetAllFormats, GetPlayerMetaFromSource, GetTeamMetaFromSource } from "./adapter.js";
 import { GetAllPlayerVersusElements } from "./utils.js";
 import { context } from "./app.js";
 
@@ -97,6 +98,19 @@ async function ComposeVetos(formatId) {
     document.getElementById("veto-container").append(...vetos)
 }
 
+function ComposeTeams(teamsRequest) {
+    const teamsMeta = teamsRequest.map(team => GetTeamMetaFromSource(team.sourceId, team.teamName));
+    const teamHeaders = document.querySelectorAll(".team-header");
+    teamsMeta.forEach((team, index) => {
+        teamHeaders[index].querySelector(".team-name").textContent = team.name;
+        if("icon" in team) {
+            const teamIcon =  teamHeaders[index].querySelector(".team-icon");
+            teamIcon.removeAttribute("hidden");
+            teamIcon.querySelector("i").classList.add(team.icon);
+        }
+    });
+}
+
 function ComposePlayersVersus(playersRequest) {
     const playersMeta = playersRequest.map(player => GetPlayerMetaFromSource(player.sourceId, player.playerId));
     const playersElements = GetAllPlayerVersusElements();
@@ -105,7 +119,6 @@ function ComposePlayersVersus(playersRequest) {
         playersElements[index].name.innerHTML = playersElements[index].name.innerHTML.replace("xx", player.nationality);
         playersElements[index].team.innerHTML = player.team;
         playersElements[index].profile.setAttribute("src",player.steamProfileImage);
-        console.log(playersElements[index].rating);
         playersElements[index].rating.innerHTML = playersElements[index].rating.innerHTML.replace("{{score}}",player.rating);
     });
 }

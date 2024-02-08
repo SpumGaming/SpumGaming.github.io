@@ -95,3 +95,11 @@ h1 {
 .grayscale {
     filter: grayscale(100%);
 }
+
+.d-none-important {
+    display: none !IMPORTANT
+}
+
+.float-right {
+    float:right;
+}

@@ -12,6 +12,8 @@
             <link href="css/veto.css" rel="stylesheet"/>
             <!-- flags -->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"/>
+            <!-- icons -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
         <!-- fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,53 +31,21 @@
     <body class="overflow-hidden">
         <main>
             <div data-load="assets/components/background-doodle.partial.html"></div>
-            <div class="container-fluid vh-100 d-flex align-items-center" style="max-width:100%;">
-                <div class="row w-100 mx-auto align-items-center" id="veto-container">
-                    <!-- <div class="col fw-bold text-uppercase">
-                        <div class="veto">
-                            <div class="p-2 bg-panel text-center">Ban</div>                            
-                            <div class="map grayscale"></div>
+            <div class="container-fluid vh-100 d-flex flex-column align-items-center" style="max-width:100%;">
+                <div class="row height-40 w-100 mx-auto align-items-center">
+                    <div class="col-6 d-flex flex-column justify-content-end align-items-start">
+                        <div class="team-header mb-2">
+                            <p class="mb-0 d-flex align-items-center"><span class="team-name me-2">team</span><span class="team-icon" hidden>·<i class="ms-2 fa-solid"></i></span></p>
+                            
                         </div>
                     </div>
-                    <div class="col fw-bold text-uppercase">
-                        <div class="veto">
-                            <div class="p-2 bg-panel text-center">Ban</div>
-                            <div>
-                                <div class="map grayscale"></div>
-                            </div>
+                    <div class="col-6 d-flex flex-column justify-content-end align-items-end">
+                        <div class="team-header mb-2">
+                            <p class="mb-0 text-right d-flex align-items-center"><span class="team-icon" hidden><i class="team-icon me-2 fa-solid"></i>·</span><span class="team-name ms-2">team</span></p>
                         </div>
                     </div>
-                    <div class="col fw-bold text-uppercase">
-                        <div class="veto">
-                            <div class="p-2 bg-panel text-center">Ban</div>                            
-                            <div class="map grayscale"></div>
-                        </div>
-                    </div>
-                    <div class="col fw-bold text-uppercase">
-                        <div class="veto">
-                            <div class="p-2 bg-panel text-center">Ban</div>                            
-                            <div class="map grayscale"></div>
-                        </div>
-                    </div>
-                    <div class="col fw-bold text-uppercase">
-                        <div class="veto">
-                            <div class="p-2 bg-panel text-center">Ban</div>                            
-                            <div class="map grayscale"></div>
-                        </div>
-                    </div>
-                    <div class="col fw-bold text-uppercase">
-                        <div class="veto">
-                            <div class="p-2 bg-panel text-center">Ban</div>                            
-                            <div class="map grayscale"></div>
-                        </div>
-                    </div>
-                    <div class="col fw-bold text-uppercase">
-                        <div class="veto">
-                            <div class="p-2 bg-panel text-center">Pick</div>                            
-                            <div class="map"></div>
-                        </div>
-                    </div> -->
                 </div>
+                <div class="row height-30 w-100 mx-auto align-items-center" id="veto-container"><!-- populated by JS --></div>
             </div>
         </main>
         <script>

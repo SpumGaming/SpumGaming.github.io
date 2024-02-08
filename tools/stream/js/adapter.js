@@ -2,7 +2,9 @@ export {
     GetAllFormats,
     GetAllTeamsFromAllSourcesShallow,
     GetAllPlayersFromAllSourcesShallow,
-    GetPlayerMetaFromSource
+    GetPlayerMetaFromSource,
+    GetTeamMetaFromSource,
+    GetTeamIconFromSource
 }
 
 import { context } from "./app.js";
@@ -36,13 +38,23 @@ var cache = {};
 function GetPlayerMetaFromSource(sourceId, playerId) {
     const source = context.data.sources.find(source => source.id == sourceId);
     let player = source.roster.players.find(player => player.id == playerId);
-    player.team = "Sub";
+    player.team = "sub";
     for (const team of source.roster.teams) {
         if (team.players.includes(playerId)) {
             player.team = team.name;
         }
     }
     return player;
+}
+
+function GetTeamMetaFromSource(sourceId, teamName) {
+    const source = context.data.sources.find(source => source.id == sourceId);
+    return source.roster.teams.find(team => team.name == teamName);
+}
+
+function GetTeamIconFromSource(sourceId, teamName) {
+    const source = context.data.sources.find(source => sourceId == source.id);
+    return source.roster.teams.find(team => team.name == teamName).icon;
 }
 
 function GetPlayersFromSourceShallow(source) {
@@ -64,7 +76,7 @@ function GetPlayersFromSourceShallow(source) {
 }
 
 function GetAllPlayersFromAllSourcesShallow() {
-    return context.data.sources.flatMap(source => {
+    return context.data.sources.sort((a,b) => a.startDate < b.startDate).flatMap(source => {
         return {
             source: {
                 id: source.id,

@@ -7,19 +7,19 @@ import { SetupApp, SetupIndexPage, SetupPvpPage, SetupTeamPage, SetupVetoPage } 
 var context = {};
 var funcList = [];
 
-window.SetupIndexPage = async function() {
+window.SetupIndexPage = function() {
     funcList.push(SetupIndexPage);
 }
 
-window.SetupPvpPage = async function() {
+window.SetupPvpPage = function() {
     funcList.push(SetupPvpPage);
 }
 
-window.SetupTeamPage = async function() {
+window.SetupTeamPage = function() {
     funcList.push(SetupTeamPage);
 }
 
-window.SetupVetoPage = async function() {   
+window.SetupVetoPage = function() {   
     funcList.push(SetupVetoPage);
 }
 
@@ -28,6 +28,6 @@ window.onload = async function() {
     await SetupApp(context);
     
     for(var func of funcList) {
-        await func(new URLSearchParams(window.location.search));
+        func(new URLSearchParams(window.location.search));
     }
 }

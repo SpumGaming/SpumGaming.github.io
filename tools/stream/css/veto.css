@@ -1,30 +1,30 @@
 .map-ancient {
-    background-image: url("../assets/mapthumbnails/de_ancient_small.png");
+    background-image: url("../assets/mapthumbnails/de_ancient.png");
     
 }
 
 .map-anubis {
-    background-image: url("../assets/mapthumbnails/de_anubis_small.png");
+    background-image: url("../assets/mapthumbnails/de_anubis.png");
 }
 
 .map-mirage {
-    background-image: url("../assets/mapthumbnails/de_mirage_small.png");
+    background-image: url("../assets/mapthumbnails/de_mirage.png");
 }
 
 .map-inferno {
-    background-image: url("../assets/mapthumbnails/de_inferno_small.png");
+    background-image: url("../assets/mapthumbnails/de_inferno.png");
 }
 
 .map-nuke {
-    background-image: url("../assets/mapthumbnails/de_nuke_small.png");
+    background-image: url("../assets/mapthumbnails/de_nuke.png");
 }
 
 .map-overpass {
-    background-image: url("../assets/mapthumbnails/de_overpass_small.png");
+    background-image: url("../assets/mapthumbnails/de_overpass.png");
 }
 
 .map-vertigo {
-    background-image: url("../assets/mapthumbnails/de_vertigo_small.png");
+    background-image: url("../assets/mapthumbnails/de_vertigo.png");
 }
 
 .map-container {
@@ -40,6 +40,16 @@
 
 .anim-expandHeight {
     animation: expandHeight 0.5s ease 0s 1 normal forwards;
+    animation-name: expandHeight;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+}
+
+.anim-delay-1s {
+    animation-delay: 0.5s;
 }
 
 .vertical-center {
@@ -57,4 +67,18 @@
     to {
       aspect-ratio:1;
     }
-  }
+}
+
+.team-header {
+    font-weight:bold;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+}
+
+.team-name {
+    font-size:4rem;
+}
+
+.team-icon {
+    font-size:2rem;
+}

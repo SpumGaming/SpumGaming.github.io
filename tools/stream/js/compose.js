@@ -3,7 +3,8 @@ export {
     PopulateStats,
     ComposeVetos,
     ComposePlayersVersus,
-    ComposeTeams
+    ComposeTeams,
+    ComposeTeamsLineup
 }
 
 import { BuildOptgroups, BuildOptions, BuildVetos } from "./build.js";
@@ -15,6 +16,7 @@ function ComposeForms() {
     document.querySelectorAll("form select").forEach(element => {
         ComposeForm(element);
     });
+    $('.selectpicker').selectpicker('refresh');
 }
 
 function ComposeForm(form) {
@@ -34,56 +36,6 @@ function ComposeForm(form) {
 }
 
 async function PopulateStats(player1, player2) {
-    // const players = ComposePlayerObjects(data, player1Id, player2Id);
-
-    // for(const player of players) {
-    //     player.elements.name.innerHTML = player.elements.name.innerHTML.replace("player",player.data.name);
-    //     player.elements.name.innerHTML = player.elements.name.innerHTML.replace("xx",player.data.nationality);
-    //     player.elements.profile.setAttribute("src",player.data.picture);
-    //     player.elements.team.innerHTML = player.elements.team.innerHTML.replace("team",GetTeamFromPlayerId(data, player.data.id).name);
-    //     player.elements.mapsPlayed.innerHTML = player.data.stats.mapsPlayed;
-    //     player.elements.mapsWon.innerHTML = player.data.stats.mapsWon;
-    //     player.elements.kd = player.data.stats.kd;
-    //     player.elements.headshot = player.data.stats.headshot;
-    //     player.elements.adr = player.data.stats.adr;
-    // }
-
-    // if(isNaN(players[1].data.stats.mapsPlayed || players[0].data.stats.mapsPlayed > players[1].data.stats.mapsPlayed)) {
-    //     players[0].elements.mapsPlayed.classList.add("stat-higher");
-    // } else if(isNaN(players[0].data.stats.mapsPlayed) || players[1].data.stats.mapsPlayed > players[0].data.stats.mapsPlayed) {
-    //     players[1].elements.mapsPlayed.classList.add("stat-higher");
-    // }
-    // if(player1Data.stats.maps_won > player2Data.stats.maps_won || isNaN(player2Data.stats.maps_won)) {
-    //     player1MapsWon.classList.add("stat-higher");
-    //     player2MapsWon.classList.add("stat-lower");
-    // } else if(player2Data.stats.maps_won > player1Data.stats.maps_won || isNaN(player2Data.stats.maps_won)) {
-    //     player2MapsWon.classList.add("stat-higher");
-    //     player1MapsWon.classList.add("stat-lower");
-    // }
-
-    // if(player1Data.stats.kd > player2Data.stats.kd || isNaN(player2Data.stats.kd)) {
-    //     player1Kd.classList.add("stat-higher");
-    //     player2Kd.classList.add("stat-lower");
-    // } else if(player2Data.stats.kd > player1Data.stats.kd || isNaN(player2Data.stats.kd)) {
-    //     player2Kd.classList.add("stat-higher");
-    //     player1Kd.classList.add("stat-lower");
-    // }
-
-    // if(player1Data.stats.headshot > player2Data.stats.headshot || isNaN(player2Data.stats.headshot)) {
-    //     player1Headshot.classList.add("stat-higher");
-    //     player2Headshot.classList.add("stat-lower");
-    // } else if(player2Data.stats.headshot > player1Data.stats.headshot || isNaN(player2Data.stats.headshot)) {
-    //     player2Headshot.classList.add("stat-higher");
-    //     player1Headshot.classList.add("stat-lower");
-    // }
-
-    // if(player1Data.stats.adr > player2Data.stats.adr || isNaN(player2Data.stats.adr)) {
-    //     player1Adr.classList.add("stat-higher");
-    //     player2Adr.classList.add("stat-lower");
-    // } else if(player2Data.stats.adr > player1Data.stats.adr || isNaN(player2Data.stats.adr)) {
-    //     player2Adr.classList.add("stat-higher");
-    //     player1Adr.classList.add("stat-lower");
-    // }
 }
 
 const mapOptionSource = new Map([
@@ -108,6 +60,19 @@ function ComposeTeams(teamsRequest) {
             teamIcon.removeAttribute("hidden");
             teamIcon.querySelector("i").classList.add(team.icon);
         }
+    });
+}
+
+function ComposeTeamsLineup(teamsRequest) {
+    ComposeTeams(teamsRequest);
+
+    const teamsMeta = teamsRequest.map(team => GetTeamMetaFromSource(team.sourceId, team.teamName));
+    const teamsProfiles = document.querySelectorAll(".team-profiles img");
+    teamsMeta.forEach((team, teamIndex) => {
+        const playersMeta = team.players.map(player => GetPlayerMetaFromSource(teamsRequest[teamIndex].sourceId, player))
+        playersMeta.forEach((player, playerIndex) => {
+            teamsProfiles[playerIndex + (teamIndex * playersMeta.length)].setAttribute("src",player.steamProfileImage);
+        });
     });
 }
 

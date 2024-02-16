@@ -6,7 +6,7 @@ export {
     SetupVetoPage
 }
 
-import { ComposeForms, ComposeVetos, ComposePlayersVersus, ComposeTeams } from "./compose.js";
+import { ComposeForms, ComposeVetos, ComposePlayersVersus, ComposeTeams, ComposeTeamsLineup } from "./compose.js";
 import { GetTeamIconFromSource } from "./adapter.js";
 import { GetJson, LoadHtmlIntoElement } from "./utils.js";
 import { DATA_PATH_NEW } from "./constants.js";
@@ -43,7 +43,15 @@ function SetupPvpPage(params) {
 }
 
 function SetupTeamPage(params) {
-    var params = new URLSearchParams(window.location.search);
+    var parsed = JSON.parse(params.get("teams"));
+    const teams = parsed.map(team => {
+        return {
+            sourceId: decodeURIComponent(team.group),
+            teamName: decodeURIComponent(team.opt)
+        }
+    });
+
+    ComposeTeamsLineup(teams);
 }
 
 function SetupVetoPage(params) {
@@ -127,8 +135,8 @@ function SetupVetoPage(params) {
 let keyToMap = new Map([
     ["Digit1","map-ancient"],
     ["Digit2","map-anubis"],
-    ["Digit3","map-mirage"],
-    ["Digit4","map-inferno"],
+    ["Digit3","map-inferno"],
+    ["Digit4","map-mirage"],
     ["Digit5","map-nuke"],
     ["Digit6","map-overpass"],
     ["Digit7","map-vertigo"]

@@ -44,3 +44,7 @@
 .info {
     aspect-ratio: 1;
 }
+
+.tooltiptext li {
+    text-align:start;
+}

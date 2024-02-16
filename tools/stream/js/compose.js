@@ -67,11 +67,13 @@ function ComposeTeamsLineup(teamsRequest) {
     ComposeTeams(teamsRequest);
 
     const teamsMeta = teamsRequest.map(team => GetTeamMetaFromSource(team.sourceId, team.teamName));
-    const teamsProfiles = document.querySelectorAll(".team-profiles img");
+    const teamsProfiles = document.querySelectorAll(".team-profiles .player");
     teamsMeta.forEach((team, teamIndex) => {
         const playersMeta = team.players.map(player => GetPlayerMetaFromSource(teamsRequest[teamIndex].sourceId, player))
         playersMeta.forEach((player, playerIndex) => {
-            teamsProfiles[playerIndex + (teamIndex * playersMeta.length)].setAttribute("src",player.steamProfileImage);
+            var profile = teamsProfiles[playerIndex + (teamIndex * playersMeta.length)];
+            profile.querySelector("img").setAttribute("src",player.steamProfileImage);
+            profile.querySelector("span").textContent = player.name;
         });
     });
 }

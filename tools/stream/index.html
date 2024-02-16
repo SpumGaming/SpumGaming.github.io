@@ -44,7 +44,7 @@
                                 <div class="col d-flex justify-content-end">
                                     <div class="btn btn-primary has-tooltip info">
                                         <i class="fa-solid fa-info"></i>
-                                        <span class="tooltiptext">Show stats for player vs player. Choose the player (grouped by source) and select up to 5 stats.</span>
+                                        <span class="tooltiptext">Show stats for player vs player. Choose the players (grouped by source) and select up to 5 stats.</span>
                                     </div>
                                 </div>
                             </div>
@@ -79,7 +79,17 @@
                             <button type="submit" class="btn btn-primary">Open</button>
                         </form>
                         <form class="border border-secondary rounded p-2 mb-3" id="formTeam" data-destination="team">
-                            <legend>Team Lineup</legend>
+                            <div class="row">
+                                <div class="col">
+                                    <legend>Team Lineup</legend>
+                                </div>
+                                <div class="col d-flex justify-content-end">
+                                    <div class="btn btn-primary has-tooltip info">
+                                        <i class="fa-solid fa-info"></i>
+                                        <span class="tooltiptext">Show players on a team vs team. Choose the teams (grouped by source).</span>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row mb-3">
                                 <div class="col">
                                     <label for="selectTeam" class="form-label">Team 1</label>
@@ -95,7 +105,28 @@
                             <button type="submit" class="btn btn-primary">Open</button>
                         </form>
                         <form class="border border-secondary rounded p-2 mb-3" id="formVeto" data-destination="veto">
-                            <legend>Veto</legend>
+                            <div class="row">
+                                <div class="col">
+                                    <legend>Veto</legend>
+                                </div>
+                                <div class="col d-flex justify-content-end">
+                                    <div class="btn btn-primary has-tooltip info">
+                                        <i class="fa-solid fa-info"></i>
+                                        <span class="tooltiptext">
+                                            Display live vetoes for a match. Press left arrow or right arrow first to choose the starting team. Then press 1 through 7 for maps.
+                                            <ol>
+                                                <li>de_ancient</li>
+                                                <li>de_anubis</li>
+                                                <li>de_inferno</li>
+                                                <li>de_mirage</li>
+                                                <li>de_nuke</li>
+                                                <li>de_overpass</li>
+                                                <li>de_vertigo</li>
+                                            </ol>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row mb-3">
                                 <div class="col">
                                     <label for="selectFormat" class="form-label">Format</label>
@@ -116,11 +147,6 @@
                             </div>
                             <button type="submit" class="btn btn-primary">Open</button>
                         </form>
-                        <!-- <i class="fa-solid fa-rocket"></i>
-                        <i class="fa-solid fa-wheelchair"></i>
-                        <i class="fa-solid fa-basketball"></i>
-                        <i class="fa-solid fa-ice-cream"></i>
-                        <i class="fa-solid fa-star-and-crescent"></i> -->
                     </div>
                 </div>
             </div>

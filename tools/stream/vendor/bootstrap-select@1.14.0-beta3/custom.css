@@ -3,7 +3,7 @@
 }
 
 .bootstrap-select:not(.input-group-btn), .bootstrap-select[class*="col-"] {
-    display:unset;
+    display:flex;
 }
 
 .dropdown-menu {

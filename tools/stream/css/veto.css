@@ -1,0 +1,84 @@
+.map-ancient {
+    background-image: url("../assets/mapthumbnails/de_ancient.png");
+    
+}
+
+.map-anubis {
+    background-image: url("../assets/mapthumbnails/de_anubis.png");
+}
+
+.map-mirage {
+    background-image: url("../assets/mapthumbnails/de_mirage.png");
+}
+
+.map-inferno {
+    background-image: url("../assets/mapthumbnails/de_inferno.png");
+}
+
+.map-nuke {
+    background-image: url("../assets/mapthumbnails/de_nuke.png");
+}
+
+.map-overpass {
+    background-image: url("../assets/mapthumbnails/de_overpass.png");
+}
+
+.map-vertigo {
+    background-image: url("../assets/mapthumbnails/de_vertigo.png");
+}
+
+.map-container {
+    overflow:hidden;
+    width:100%;
+}
+
+.map {
+    height:100%;
+    background-size:cover;
+    background-position:center;
+}
+
+.anim-expandHeight {
+    animation: expandHeight 0.5s ease 0s 1 normal forwards;
+    animation-name: expandHeight;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+}
+
+.anim-delay-1s {
+    animation-delay: 0.5s;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+@keyframes expandHeight {
+    from {
+      aspect-ratio:100000;
+    }
+    to {
+      aspect-ratio:1;
+    }
+}
+
+.team-header {
+    font-weight:bold;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+}
+
+.team-name {
+    font-size:4rem;
+}
+
+.team-icon {
+    font-size:2rem;
+}

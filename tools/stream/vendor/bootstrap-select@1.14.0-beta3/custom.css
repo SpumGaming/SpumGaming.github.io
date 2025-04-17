@@ -1,0 +1,15 @@
+.bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    width:unset;
+}
+
+.bootstrap-select:not(.input-group-btn), .bootstrap-select[class*="col-"] {
+    display:flex;
+}
+
+.dropdown-menu {
+    width:400px;
+}
+
+.dropdown-toggle {
+    border: 1px solid #d5d5d5 !important;
+}

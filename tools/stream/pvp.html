@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="js/app.js" type="module"></script>
+        <title>SpumTools | PVP</title>       
+        <!-- stylesheets -->
+            <!-- vendor-->
+            <link href="vendor/bootstrap-5.1.3/css/bootstrap.min.css" rel="stylesheet"/>
+            <link href="vendor/aos/css/aos.css" rel="stylesheet"/>
+            <!-- custom -->
+            <link href="css/base.css" rel="stylesheet"/>
+            <link href="css/pvp.css" rel="stylesheet"/>
+            <!-- flags -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"/>
+
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">        
+
+        <!-- scripts -->
+            <!-- vendor -->
+            <script src="vendor/bootstrap-5.1.3/js/bootstrap.min.js"></script>
+            <script src="vendor/jquery-3.6.0/jquery-3.6.0.slim.min.js"></script>
+            <script src="vendor/aos/js/aos.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/css-doodle/0.6.1/css-doodle.min.js"></script>
+            <!-- custom -->
+    </head>
+    <body class="overflow-hidden">  
+        <main>
+            <div data-load="assets/components/background-doodle.partial.html"></div>
+            
+            <div class="container vh-100" style="max-width:100%;">
+                <div class="row height-30">
+                    <div class="col-4 d-flex flex-column justify-content-end align-items-start">
+                        <div class="player-header mb-2" id="player1-header">
+                            <p class="player-name mb-0 d-flex">player <span class="fi fi-xx player-flag align-self-center ms-3"></span></p>
+                            <p class="player-team">team</p>
+                        </div>
+                    </div>
+                    <div class="col col-4 d-flex align-items-end">
+                        <div class="mx-auto mb-4 p-2 bg-panel" id="stat-source">
+                            <div class="text-align-center">since Spum League 4</div>
+                        </div>
+                    </div>
+                    <div class="col-4 d-flex flex-column justify-content-end align-items-end">
+                        <div class="player-header mb-2" id="player2-header">
+                            <p class="player-name mb-0 text-right d-flex">player <span class="fi fi-xx player-flag align-self-center ms-3"></span></p>
+                            <p class="player-team text-right">team</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row height-40">
+                    <div class="col-4 d-flex align-items-center justify-content-center player-profile" id="player1-profile">
+                        <div class="frame">
+                            <div style="width:50%;height:50%;background-color:white;"></div>
+                            <div style="width:50%;height:50%;background-color:white;transform:translate(100%,0%);"></div>
+                        </div>
+                        <img class="profile" src="assets/profilepictures/blank_profile.jpg"/>
+                    </div>
+                    <div class="col-4">
+                        <div class="container-fluid d-flex flex-column height-100" id="player-stats">
+                            <div class="row d-flex mb-2 p-1 bg-panel">
+                                <div class="col col-3 d-flex align-items-center justify-content-center"><span class="stat" id="player1-maps-played">1</span></div>
+                                <div class="col col-6 d-flex align-items-center justify-content-center"><span class="stat-name">Maps Played</span></div>
+                                <div class="col col-3 d-flex align-items-center justify-content-center"><span class="stat" id="player2-maps-played">1</span></div>
+                            </div>
+                            <div class="row d-flex mb-2 p-1 bg-panel">
+                                <div class="col col-3 d-flex align-items-center justify-content-center"><span class="stat" id="player1-maps-won">1</span></div>
+                                <div class="col col-6 d-flex align-items-center justify-content-center"><span class="stat-name">Maps Won</span></div>
+                                <div class="col col-3 d-flex align-items-center justify-content-center"><span class="stat" id="player2-maps-won">1</span></div>
+                            </div>
+                            <div class="row d-flex mb-2 p-1 bg-panel">
+                                <div class="col col-3 d-flex align-items-center justify-content-center"><span class="stat" id="player1-kd">1</span></div>
+                                <div class="col col-6 d-flex align-items-center justify-content-center"><span class="stat-name">KD</span></div>
+                                <div class="col col-3 d-flex align-items-center justify-content-center"><span class="stat" id="player2-kd">1</span></div>
+                            </div>
+                            <div class="row d-flex mb-2 p-1 bg-panel">
+                                <div class="col col-3 d-flex align-items-center justify-content-center"><span class="stat" id="player1-headshot">1</span></div>
+                                <div class="col col-6 d-flex align-items-center justify-content-center"><span class="stat-name">Headshot</span></div>
+                                <div class="col col-3 d-flex align-items-center justify-content-center"><span class="stat" id="player2-headshot">1</span></div>
+                            </div>
+                            <div class="row d-flex p-1 bg-panel">
+                                <div class="col col-3 d-flex align-items-center justify-content-center"><span class="stat" id="player1-adr">1</span></div>
+                                <div class="col col-6 d-flex align-items-center justify-content-center"><span class="stat-name">ADR</span></div>
+                                <div class="col col-3 d-flex align-items-center justify-content-center"><span class="stat" id="player2-adr">1</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 d-flex align-items-center justify-content-center player-profile" id="player2-profile">
+                        <!-- <img class="frame" src="/frame.png"/> -->
+                        <div class="frame">
+                            <div style="width:50%;height:50%;background-color:white;"></div>
+                            <div style="width:50%;height:50%;background-color:white;transform:translate(100%,0%);"></div>
+                        </div>
+                        <img class="profile" src="assets/profilepictures/blank_profile.jpg"/>
+                    </div>
+                </div>
+                <div class="row height-30">
+                    <div class="col-4">
+                        <div class="player-rating" id="player1-rating"><span class="rating-label">spum score</span>{{score}}</div>
+                    </div>
+                    <div class="col-4">
+                        
+                    </div>
+                    <div class="col-4">
+                        <div class="player-rating" id="player2-rating">{{score}}<span class="rating-label">spum score</span></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <script>
+            window.addEventListener("load", () => window.SetupPvpPage());
+        </script>
+    </body>
+</html>

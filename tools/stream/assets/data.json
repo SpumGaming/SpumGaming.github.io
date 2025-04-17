@@ -1,0 +1,120 @@
+{
+    "players":[
+        {
+            "id":"matt",
+            "name":"Matt",
+            "nationality":"gb",
+            "picture":"/tools/stream/assets/profilepictures/matt.jpg",
+            "steamProfileLink":"https://steamcommunity.com/id/hotbeverage/",
+            "captain":true,
+            "stats": {
+                "adr":0,
+                "kd":7,
+                "mapsPlayed":"n/a",
+                "mapsWon":1,
+                "headshot":0
+            }
+        },
+        {
+            "id":"skeng",
+            "name":"skengis_d0ng",
+            "nationality":"rs",
+            "picture":"/tools/stream/assets/profilepictures/skeng.jpg",
+            "steamProfileLink":"https://steamcommunity.com/id/skengis_d0ng/",
+            "captain":false,
+            "stats": {
+                "adr":2,
+                "kd":0,
+                "mapsPlayed":1,
+                "mapsWon":0,
+                "headshot":1
+            }
+        },
+        {
+            "id":"kogi",
+            "name":"к о г и.",
+            "nationality":"gb",
+            "picture":"/tools/stream/assets/profilepictures/kogi.jpg",
+            "steamProfileLink":"https://steamcommunity.com/id/jishmael/",
+            "captain":false,
+            "stats": {
+                "adr":2,
+                "kd":5,
+                "mapsPlayed":0,
+                "mapsWon":7,
+                "headshot":0
+            }
+        },
+        {
+            "id":"azza",
+            "name":"Azzarudders",
+            "nationality":"gb",
+            "picture":"/tools/stream/assets/profilepictures/azza.jpg",
+            "steamProfileLink":"https://steamcommunity.com/id/azzarudders/",
+            "captain":false,
+            "stats": {
+                "adr":0,
+                "kd":2,
+                "mapsPlayed":5,
+                "mapsWon":6,
+                "headshot":2
+            }
+        },
+        {
+            "id":"luke",
+            "name":"Lukent",
+            "nationality":"gb",
+            "picture":"/tools/stream/assets/profilepictures/lukent.jpg",
+            "steamProfileLink":"https://steamcommunity.com/id/lukent/",
+            "captain":false,
+            "stats": {
+                "adr":3,
+                "kd":4,
+                "mapsPlayed":2,
+                "mapsWon":1,
+                "headshot":9
+            }
+        },
+        {
+            "id":"fred",
+            "name":"nectarine_consumer",
+            "nationality":"gb",
+            "picture":"/tools/stream/assets/profilepictures/fred.jpg",
+            "steamProfileLink":"https://steamcommunity.com/id/lukent/",
+            "captain":false,
+            "stats": {
+                "adr":1,
+                "kd":6,
+                "mapsPlayed":5,
+                "mapsWon":1,
+                "headshot":0
+            }
+        }
+    ],
+    "teams":[
+        {
+            "id":"t1",
+            "name":"JepCoque",
+            "players":[
+                "matt","skeng","kogi","azza","luke"
+            ]
+        },
+        {
+            "id":"t2",
+            "name":"BelgradeJames",
+            "players":[
+                "fred","fred","fred","fred","fred"
+            ]
+        }
+    ],
+    "sources":[
+        {
+            "id":"sl4",
+            "name":"Spum League 4"
+        },
+        {
+            "id":"sl5",
+            "name":"Spum League 5"
+        }
+    ]
+}

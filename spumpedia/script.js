@@ -74,9 +74,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
       
-      const formatText = (text) => {
-        return text.replace(/\n/g, '<br>');
-      };
+      function formatText(text) {
+        // Convert URLs to clickable links
+        const linkified = text.replace(
+          /(https?:\/\/[^\s]+)/g,
+          '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+        );
       
+        // Replace line breaks with <br>
+        return linkified.replace(/\n/g, '<br>');
+      }
   });
-  
+
+const backToTopBtn = document.getElementById('backToTop');
+
+// Show/hide button on scroll
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    backToTopBtn.style.display = 'block';
+  } else {
+    backToTopBtn.style.display = 'none';
+  }
+});
+
+// Scroll to top smoothly
+backToTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});

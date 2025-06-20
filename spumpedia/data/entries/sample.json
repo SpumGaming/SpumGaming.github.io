@@ -1,0 +1,17 @@
+// this is just an example that explains each field
+// delete any optional fields you dont want data for
+// add path to file of entry in manifest.json
+{
+    // required: main title shown in accordion
+    "title": "Tuscan salmon",
+    // required: longer description of the entry
+    "description": "A man of lettuce and grit.",
+    // optional: creation of the joke, not when it was added here
+    "created": "2023-08-14",
+    // optional: comma separated list of entries to be displayed as unordered list
+    "list": ["Twisty Mark, Agar Bobbie, Salad Binman"],
+    // optional: comma separated list of searchable terms. this only needs to be words not mentioned anywhere else in title or details
+    "tags": ["funny name", "bin lore"],
+    // optional: comma separated list of image paths, root being root of directory
+    "images": ["/assets/image1.jpg", "/assets/image2.png"]
+}

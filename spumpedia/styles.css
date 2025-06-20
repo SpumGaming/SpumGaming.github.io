@@ -1,0 +1,8 @@
+/* Responsive max-width for desktop */
+.container {
+    max-width: 720px;
+}
+
+.accordion-body p:last-of-type {
+    margin-bottom: 0;
+}  
